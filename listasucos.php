@@ -1,3 +1,6 @@
+<?php
+include_once 'conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +15,17 @@
       <h1 class="titulo">Sistema da Loja de Sucos</h1>
 
       <nav class="navbar">
-         <a href="inicio.html">Início</a>
-         <a href="sucos.html">Sucos</a>
-         <a href="sabores.html">Sabores</a>
-         <a href="categorias.html">Categorias</a>
+         <a href="inicio.php">Início</a>
+         <a href="listasucos.php">Sucos</a>
+         <a href="listasabores.php">Sabores</a>
+         <a href="listacategorias.php">Categorias</a>
       </nav>
 
    </div>
 </header>
 <main>
   <div class="container">
-    <h1>Lista de Categorias</h1>
+    <h1>Lista de Sucos</h1>
     <table>
       <tr>
         <th>ID</th>
@@ -30,19 +33,19 @@
         <th>Preço</th>
         <th>Marca</th>
         <th>Validade</th>
-        <th>CategoriaID</th>
-        <th>SaborID</th>
+        <th>Categoria</th>
+        <th>Sabor</th>
         <th>Ações</th>
       </tr>
 
       <tr>
       <td>1</td>
-      <td>Suco de Laranja</td>
-      <td>10.00</td>
+      <td>Suco de Uva</td>
+      <td>10.99</td>
       <td>Del Valle</td>
-      <td>2026-12-01</td>
-      <td>1</td>
-      <td>2</td>
+      <td>2026-09-12</td>
+      <td>Integral</td>
+      <td>Uva</td>
       <td>
       <a href="#" class="btn editar">Editar</a>
       <a href="#" class="btn excluir">Excluir</a>
