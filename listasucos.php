@@ -1,5 +1,5 @@
 <?php
-include_once 'conexao.php';
+include_once './include/conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,6 @@ include_once 'conexao.php';
       <h1 class="titulo">Sistema da Loja de Sucos</h1>
 
       <nav class="navbar">
-         <a href="inicio.php">Início</a>
          <a href="listasucos.php">Sucos</a>
          <a href="listasabores.php">Sabores</a>
          <a href="listacategorias.php">Categorias</a>

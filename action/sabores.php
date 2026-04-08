@@ -1,6 +1,5 @@
 <?php
 // include dos arquivos
-include_once   '../include/logado.php';
 include_once   '../include/conexao.php';
 
 // captura a acao e id VIA URL - Query String
