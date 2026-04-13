@@ -17,9 +17,9 @@
          <a href="listacategorias.php">Categorias</a> 
       </nav>
     <div class="container">
-        <h2 class="titulo2">Cadastro de Marcas</h2>  
+        <h2 class="titulo2">Cadastro de Sabores</h2>  
         <input class="input1" type="text" name="Nome" placeholder="Digite o Nome">
-        
+         <input class="input2" type="text" name="Nome" placeholder="Digite a Cor">
         <button class="botao">Salvar</button>
     </div>
    </div>

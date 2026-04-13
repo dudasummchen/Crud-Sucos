@@ -24,7 +24,7 @@
     <div class="container">
         <h1>Lista de Sucos</h1>
 
-        <table border="1">
+        <table>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>

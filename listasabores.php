@@ -43,27 +43,36 @@ include_once './include/conexao.php';
       </tr>
 
       <?php
-      while ($row = mysqli_fetch_assoc ($result) ) {
-        echo '<tr>
-        <td>'.$row["SaborID"].'</td>
-        <td>'.$row["Nome"].'</td>
-        <td>'.$row["Cor"].'</td>
-        <td>
-          <a href="#" class="btn editar">Editar</a>
-          <a href="#" class="btn excluir">Excluir</a>
-        </td>
-        </tr>';
-      }
-     ?>
-</table>
-     
+       $sql = "SELECT 
+                        s.SaborID,
+                        s.Nome,
+                        s.Cor,
+                        sa.Nome AS Sabor,
+                        c.Nome AS Categoria
+                    FROM sucos AS s
+                    INNER JOIN sabores AS sa
+                        ON s.SaborID = sa.SaborID
+                    INNER JOIN categorias AS c
+                        ON s.CategoriaID = c.CategoriaID";
 
+            $result = mysqli_query($conexao, $sql);
 
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['SaborID']}</td>
+                        <td>{$row['Nome']}</td>
+                        <td>{$row['Cor']}</td>
+                        <td>
+                            <a href='salvar-sabores.php?id={$row['SaborID']}' class='btn editar'>Editar</a>
+                            <a href='excluir-sabores.php?id={$row['SaborID']}' class='btn excluir'>Excluir</a>
+                        </td>
+                      </tr>";
+            }
+            ?>
 
-  </div>
-</div>
-</div>
-
+        </table>
+    </div>
 </main>
+
 </body>
 </html>

@@ -64,25 +64,7 @@
     background-color: #f1f1f1;
   }
 
-  .btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
-  }
-.btn {
-  padding: 6px 12px;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  margin-right: 5px;
-  display: inline-block;
-}
- 
+
 
 .editar {
   background-color: #f4b400;
@@ -99,3 +81,13 @@
   margin-bottom: 10px;
 }
 
+ .btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+ 
+  

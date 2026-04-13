@@ -3,14 +3,15 @@
 include_once   '../include/conexao.php';
 
 // captura a acao e id VIA URL - Query String
-$acao = $_REQUEST['acao'];
-$id = $_REQUEST['id'];
+$acao = isset($_REQUEST['acao']) ? $_REQUEST['acao'] : '';
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
+
 
 // validacao
 switch ($acao) {
     case 'excluir':
         //montar o sql que exclui o registro PEGAR O ID
-        $sql = 'DELETE FROM cargos WHERE CargoID ='.$id;
+        $sql = "DELETE FROM sabores WHERE SaborID = .$id";
         //executar o SQL
         mysqli_query($conexao,$sql);
         //redirecionar a pagina
@@ -18,18 +19,20 @@ switch ($acao) {
         break;
 
     case 'salvar':
-        $nome = $_POST['nome'];
-        $tetosalarial = $_POST['tetosalarial'];
-         if ( empty($id)) {
+         $nome = $_POST['nome'];
+        $preco = $_POST['cor'];
              //INSERT
-            $sql = "INSERT INTO cargos (Nome, TetoSalarial) 
-                  VALUES ('$nome', $tetosalarial);";
+
+            $sql = "INSERT INTO sabores
+             (Nome, Cor,) 
+                  VALUES 
+                  ('$nome', '$cor')";
             }else{
                 //UPDATE
-                $sql = "UPDATE cargos 
-                       SET Nome = '$nome', 
-                       TetoSalarial = '$tetosalarial'
-                        WHERE CargoID = $id";
+                $sql = "UPDATE sabores  SET
+                        Nome = '$nome', 
+                        Cor = '$cor'
+                        WHERE SaborID = $id";
 
             }
 
@@ -37,8 +40,5 @@ switch ($acao) {
             //redirecionar a pagina
             header('Location: ../lista-cargos.php');
         break;
-    default:
-      #code
-      break;
  }
  ?>
