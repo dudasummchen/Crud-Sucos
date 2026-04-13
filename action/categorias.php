@@ -1,44 +1,37 @@
 <?php
-// include dos arquivos
-include_once   '../include/conexao.php';
+include_once '../include/conexao.php';
 
 // captura a acao e id VIA URL - Query String
-$acao = $_REQUEST['acao'];
-$id = $_REQUEST['id'];
+$acao = isset($_REQUEST['acao']) ? $_REQUEST['acao'] : '';
+$id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 
-// validacao
 switch ($acao) {
+
     case 'excluir':
-        //montar o sql que exclui o registro PEGAR O ID
-        $sql = 'DELETE FROM cargos WHERE CargoID ='.$id;
-        //executar o SQL
-        mysqli_query($conexao,$sql);
-        //redirecionar a pagina
-        header('Location: ../lista-cargos.php');
+        $sql = "DELETE FROM categorias WHERE CategoriaID = $id";
+        mysqli_query($conexao, $sql);
+        header('Location: ../lista-categorias.php');
         break;
 
     case 'salvar':
-        $nome = $_POST['nome'];
-        $tetosalarial = $_POST['tetosalarial'];
-         if ( empty($id)) {
-             //INSERT
-            $sql = "INSERT INTO cargos (Nome, TetoSalarial) 
-                  VALUES ('$nome', $tetosalarial);";
-            }else{
-                //UPDATE
-                $sql = "UPDATE cargos 
-                       SET Nome = '$nome', 
-                       TetoSalarial = '$tetosalarial'
-                        WHERE CargoID = $id";
+        $nome = $_POST['nome'];         
 
-            }
+        if (empty($id)) {
+            // INSERT
+            $sql = "INSERT INTO categorias
+                    (Nome, CategoriaID) 
+                    VALUES 
+                    ('$nome')";
+        } else {
+            // UPDATE
+            $sql = "UPDATE sucos SET
+                        Nome = '$nome',
+                        CategoriaID = $categoria,
+                    WHERE CategoriaID = $id";
+        }
 
-            mysqli_query($conexao,$sql);
-            //redirecionar a pagina
-            header('Location: ../lista-cargos.php');
+        mysqli_query($conexao, $sql);
+        header('Location: ../lista-categorias.php');
         break;
-    default:
-      #code
-      break;
- }
- ?>
+}
+?>
