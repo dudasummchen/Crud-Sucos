@@ -10,7 +10,7 @@ switch ($acao) {
     case 'excluir':
         $sql = "DELETE FROM categorias WHERE CategoriaID = $id";
         mysqli_query($conexao, $sql);
-        header('Location: ../lista-categorias.php');
+        header('Location: ../listacategorias.php');
         break;
 
     case 'salvar':
@@ -31,7 +31,7 @@ switch ($acao) {
         }
 
         mysqli_query($conexao, $sql);
-        header('Location: ../lista-categorias.php');
+        header('Location: ../listacategorias.php');
         break;
 }
 ?>

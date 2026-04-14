@@ -1,3 +1,6 @@
+<?php
+include_once './include/conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +19,11 @@
          <a href="listasabores.php">Sabores</a>
          <a href="listacategorias.php">Categorias</a> 
       </nav>
+      
     <div class="container">
+
+         <form action="./action/sucos.php" method="post">
         <h2 class="titulo2">Cadastro de Sucos</h2>  
-        <form action="./action/sucos.php" method="post">
         <input type="hidden" name="acao" value="salvar">
         <input type="hidden" name="id" value="">
         <input class="input1" type="text" name="nome" placeholder="Digite o Nome">
@@ -27,13 +32,33 @@
         <input class="input4" type="date" name="validade" placeholder="Digite a Validade">
         <label for="categoria">Digite a Categoria</label>
         <select id="categoria" name="categoria">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+                    <option value="">- Selecione -</option>
+            <?php
+            $sql = "SELECT * FROM categorias;";
+            $result = mysqli_query($conexao, $sql);
+            while($row = mysqli_fetch_assoc($result)) {
+            ?>
+                <option value="<?php echo $row['CategoriaID'];?>"><?php echo $row['Nome'];?></option>
+            <?php
+            }
+            ?>>
+               <input class="input6" type="text" name="sabor" placeholder="Digite o Sabor">
+         <select id="sabor" name="sabor">
+         <option value="">- Selecione -</option>
+         <?php
+          $sql = "SELECT * FROM sabores;";
+         $result = mysqli_query($conexao, $sql);
+         while($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <option value="<?php echo $row['SaborID'];?>">
+            <?php echo $row['Nome'];?>
+        </option>
+        <?php
+       }
+    ?>
+</select>
          </select>
       
-         <input class="input6" type="text" name="sabor" placeholder="Digite o Sabor">
         <button class="botao">Salvar</button>
         </form>
     </div>

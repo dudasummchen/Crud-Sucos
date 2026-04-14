@@ -10,7 +10,7 @@ switch ($acao) {
     case 'excluir':
         $sql = "DELETE FROM sucos WHERE SucoID = $id";
         mysqli_query($conexao, $sql);
-        header('Location: ../lista-sucos.php');
+        header('Location: ../listasucos.php');
         break;
 
     case 'salvar':
@@ -26,7 +26,7 @@ switch ($acao) {
             $sql = "INSERT INTO sucos 
                     (Nome, Preco, Marca, Validade, CategoriaID, SaborID) 
                     VALUES 
-                    ('$nome', '$preco', '$marca', '$validade', $categoria, $sabor)";
+                    ('$nome', '$preco', '$marca', '$validade', '$categoria', '$sabor')";
         } else {
             // UPDATE
             $sql = "UPDATE sucos SET

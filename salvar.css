@@ -1,6 +1,7 @@
 .cabecalho {
     background-color: #F9E79F;
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,12 +32,12 @@
    background-color: transparent;
 }
 .container {
-    max-width: 530px;
-    margin: 40px auto 0 auto;
-    background: #d65a75;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    height: auto;
-
+    width: 350px;
+    margin: auto;
+    margin-top: 100px;
+    background: rgba(255 255 255 / 0.1); 
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    text-align: center;
   }
